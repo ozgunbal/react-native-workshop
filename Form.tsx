@@ -7,6 +7,7 @@ import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { Trans, useTranslation } from 'react-i18next';
+import { useNavigation } from '@react-navigation/native';
 
 const LoginSchema = yup.object({
   tckn: yup.string()
@@ -29,6 +30,7 @@ interface FormProps {
 
 const Form = () => {
   const { t, i18n } = useTranslation();
+  const navigation = useNavigation();
 
   const changeLanguage = () => {
     i18n.changeLanguage(i18n.language === 'en' ? 'tr' : 'en')
@@ -42,6 +44,9 @@ const Form = () => {
   const handleLogin = async (values: FormProps) => {
     console.log(values);
     // Add API call
+
+    // Navigate if successful
+    navigation.navigate('Dashboard' as never);
   }
 
   return (
