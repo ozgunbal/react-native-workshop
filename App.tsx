@@ -8,6 +8,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import Button from './components/Button';
 
 import Form from './Form';
 
@@ -27,8 +28,8 @@ const App = () => {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-          {/* Import to type of custom Button from components/Button.tsx */}
-          {/* One should be primary and another one would be secondary */}
+          <Button title="Primary Button" variant="primary" disabled={false} />
+          <Button title="Secondary Button" variant="secondary" />
       </ScrollView>
     </SafeAreaView>
   );
