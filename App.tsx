@@ -8,19 +8,23 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import { I18nextProvider, useTranslation } from 'react-i18next';
+import i18n from './i18n';
 
 import Form from './Form';
+
 /*
- Add i18n support
+  Add navigation and move another page after login
 */
 const App = () => {
+  const { t } = useTranslation();
   const isDarkMode = useColorScheme() === 'dark';
-
   const backgroundStyle = {
     backgroundColor: "white",
   };
 
   return (
+    <I18nextProvider i18n={i18n}>
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
@@ -30,11 +34,14 @@ const App = () => {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
           <View style={styles.sectionContainer}>
-            <Text style={styles.sectionTitle}>Welcome to the App</Text>
+            <Text style={styles.sectionTitle}>
+              {t('welcome_message')}
+            </Text>
           </View>
           <Form />
       </ScrollView>
     </SafeAreaView>
+    </I18nextProvider>
   );
 };
 
