@@ -1,4 +1,4 @@
-import React, { type PropsWithChildren } from 'react';
+import React from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -8,7 +8,6 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-import Button from './components/Button';
 
 import Form from './Form';
 
@@ -28,10 +27,10 @@ const App = () => {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-          <Button title="Primary Button" variant="primary" disabled={false} />
-          <Button title="Secondary Button" variant="secondary" />
-          {/* Remove above buttons */}
-          {/* Make a form component(./Form.tsx) and import here */}
+          <View style={styles.sectionContainer}>
+            <Text style={styles.sectionTitle}>Welcome to the App</Text>
+          </View>
+          <Form />
       </ScrollView>
     </SafeAreaView>
   );
