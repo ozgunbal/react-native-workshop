@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { FC } from 'react';
 import {
   TouchableOpacity,
+  TouchableOpacityProps,
   Text,
   StyleSheet,
   View
 } from 'react-native';
 
-/* 
-- Add Props interface to support type safety
- */
+interface Props extends TouchableOpacityProps {
+  variant: 'primary' | 'secondary';
+  title: string;
+  uppercase?: boolean;
+}
 
-const Button = ({ variant, title, uppercase = true, ...props }: any) => {
+const Button: FC<Props> = ({ variant, title, uppercase = true, ...props }: any) => {
   const buttonVariant = props.disabled ? "disabled" : variant;
   return (
     <TouchableOpacity {...props}>
@@ -25,6 +28,9 @@ const Button = ({ variant, title, uppercase = true, ...props }: any) => {
 
 export default Button;
 
+/*
+  Use styled-component instead of stylesheet
+*/
 
 const viewStyles = StyleSheet.create({
   primary: {
