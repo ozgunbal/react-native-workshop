@@ -10,7 +10,9 @@ import {
 } from 'react-native';
 
 import Form from './Form';
-
+/*
+ Add i18n support
+*/
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
