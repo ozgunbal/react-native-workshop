@@ -30,6 +30,8 @@ const App = () => {
         style={backgroundStyle}>
           <Button title="Primary Button" variant="primary" disabled={false} />
           <Button title="Secondary Button" variant="secondary" />
+          {/* Remove above buttons */}
+          {/* Make a form component(./Form.tsx) and import here */}
       </ScrollView>
     </SafeAreaView>
   );
