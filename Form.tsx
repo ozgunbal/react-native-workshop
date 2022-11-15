@@ -8,6 +8,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { Trans, useTranslation } from 'react-i18next';
 import { useNavigation } from '@react-navigation/native';
+import { useContext } from 'react';
+import { SessionContext } from './context/SessionContext';
 
 const LoginSchema = yup.object({
   tckn: yup.string()
@@ -29,6 +31,7 @@ interface FormProps {
 }
 
 const Form = () => {
+  const { setIsLoggedIn, setUserData } = useContext(SessionContext);
   const { t, i18n } = useTranslation();
   const navigation = useNavigation();
 
@@ -40,11 +43,16 @@ const Form = () => {
     defaultValues,
   });
 
-
   const handleLogin = async (values: FormProps) => {
     console.log(values);
     // Add API call
-
+    const userData = {
+      username: 'ozgunbal',
+      fullName: 'Özgün Bal',
+    }
+    // set session parameters to SessionContext
+    setIsLoggedIn?.(true);
+    setUserData?.(userData as any);
     // Navigate if successful
     navigation.navigate('Dashboard' as never);
   }

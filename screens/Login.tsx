@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import Form from './Form';
+import Form from '../Form';
 
 const App = () => {
   const { t } = useTranslation();
